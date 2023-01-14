@@ -4,7 +4,7 @@ import requests as req
 import import_ipynb
 from Hotel_Recommendation_System import recommender
 
-st.set_page_config("Hotel Recommendation System",":hotel:","wide")
+st.set_page_config("Hotel Recommendation System","wide")
 
 with st.container():
     st.title("Welcome to Hotel Recommendation System :hotel:")
