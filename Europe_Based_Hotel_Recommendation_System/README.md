@@ -9,7 +9,7 @@ app_file: Web_App.py
 pinned: false
 ---
 
-# How to run the web application
+# How to run the application
 
 
 ### Follow the steps to configure this application:
