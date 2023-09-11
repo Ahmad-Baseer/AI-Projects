@@ -1,0 +1,4 @@
+*.csv filter=lfs diff=lfs merge=lfs
+*.zip filter=lfs diff=lfs merge=lfs
+*.ipynb filter=lfs diff=lfs merge=lfs
+*.sav filter=lfs diff=lfs merge=lfs
