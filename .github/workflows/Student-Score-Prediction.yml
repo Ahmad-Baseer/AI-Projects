@@ -21,4 +21,4 @@ jobs:
           python3 -m venv .venv
           source .venv/bin/activate
           pip install huggingface_hub
-          python push_to_hub.py
+          python AI-Projects/Score_Prediction_Based_On_Study_Hours/push_to_hub.py
