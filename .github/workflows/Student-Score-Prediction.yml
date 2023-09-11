@@ -17,4 +17,8 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://AhmadHashim:$HF_TOKEN@huggingface.co/spaces/AhmadHashim/Student-Score-Prediction main
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install huggingface_hub
+          python push_to_hub.py
