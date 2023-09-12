@@ -4,14 +4,19 @@ on:
   push:
     branches:
       - main
+      
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  sync-to-hub:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
 
       - name: Set up Git LFS
         run: git lfs install
@@ -19,16 +24,7 @@ jobs:
       - name: Pull LFS files
         run: git lfs pull
 
-      - name: Install Hugging Face CLI
-        run: pip install huggingface_hub
-
-      - name: Push to Hugging Face
-        run: |
-          # Log in to Hugging Face (replace with your credentials)
-          hf login
-
-          # Push all files in the subdirectory to your Hugging Face space
-          hf push -u AhmadHashim/Student-Score-Prediction ./Score_Prediction_Based_On_Study_Hours
-
+      - name: Push to hub
         env:
-          HF_HOME: ${{ github.workspace }}/.cache/huggingface
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push https://AhmadHashim:$HF_TOKEN@huggingface.co/spaces/AhmadHashim/Student-Score-Prediction main 
